@@ -88,7 +88,7 @@ app.delete(`/api/movie/:id`, (req, res) => {
     const id = req.params.id;
     db.query(`DELETE FROM movies WHERE id = ?;`,[id], function(err, results){
         if(results){
-            res.json(results);
+            res.json(`Movie id: ${id} is deleted`);
         }
         if(err){
             res.json(err);
