@@ -81,9 +81,20 @@ app.put(`/api/review/:id`, (req, res) => {
             res.json(` Review id: ${id} successfully updated`);
         }
     })
-})
-
+});
 
 // It's done when a `DELETE` request to `/api/movie/:id` route deletes a movie when tested using Insomnia.
+app.delete(`/api/movie/:id`, (req, res) => {
+    const id = req.params.id;
+    db.query(`DELETE FROM movies WHERE id = ?;`,[id], function(err, results){
+        if(results){
+            res.json(results);
+        }
+        if(err){
+            res.json(err);
+        }
+    })
+})
+
 
 app.listen(PORT, () => console.log(`app listening at ${PORT}`));
