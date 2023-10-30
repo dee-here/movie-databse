@@ -49,7 +49,7 @@ app.get(`/api/movie-reviews`, (req, res) => {
             res.json(`Error: ${err}`);
         }
     })
-})
+});
 
 
 // It's done when a `POST` request to the `/api/add-movie` route successfully adds a movie when tested using Insomnia.
@@ -63,7 +63,7 @@ app.post('/api/add-movie', (req, res) => {
             res.json(err);
         }
     })
-})
+});
 
 
 // It's done when a `PUT` request to the `/api/review/:id` route successfully updates a movie review when tested using Insomnia.
@@ -94,7 +94,7 @@ app.delete(`/api/movie/:id`, (req, res) => {
             res.json(err);
         }
     })
-})
+});
 
 
 app.listen(PORT, () => console.log(`app listening at ${PORT}`));
