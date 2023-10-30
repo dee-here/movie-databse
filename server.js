@@ -13,11 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 // Connect to database
 const db = mysql.createConnection(
     {
-    //   host: '127.0.0.1',
-      host: 'localhost',
+      host: '127.0.0.1',
+    //  host: 'localhost',
       user: 'root',
-      //password: '',
-      password: 'password',
+      password: '',
+    //  password: 'password',
       database: 'movies_db'
     },
     console.log(`Connected to the movies_db database.`)
@@ -68,12 +68,12 @@ app.post('/api/add-movie', (req, res) => {
 
 // It's done when a `PUT` request to the `/api/review/:id` route successfully updates a movie review when tested using Insomnia.
 app.put(`/api/review/:id`, (req, res) => {
-    console.log("req is: ", req);
+    //console.log("req is: ", req);
     // exytract review and review id from request !!  use that in the query below
     const id = req.params.id;
     const reviewToUpdate = req.body.review;
-    console.log(req, res);
-    db.query(`UPDATE review SET review=? WHERE id=?;`, [review, id], (err, result) => {
+    //console.log(req, res);
+    db.query(`UPDATE review SET review=? WHERE id=?;`, [reviewToUpdate, id], (err, result) => {
         if(err) {
             res.json(`Error : ${err}`);
         }
